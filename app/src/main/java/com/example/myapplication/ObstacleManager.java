@@ -1,6 +1,7 @@
 package com.example.myapplication;
 
 import android.graphics.Canvas;
+import android.graphics.Rect;
 
 import java.util.ArrayList;
 
@@ -29,6 +30,15 @@ public class ObstacleManager {
 
         obstacles = new ArrayList<>();
         populateObstacles();
+    }
+
+    public boolean playerCollide(RectPlayer player){
+        for(Obstacle ob: obstacles){
+            if(ob.playerCollide(player)){
+                return true;
+            }
+        }
+        return false;
     }
 
     private void populateObstacles(){
